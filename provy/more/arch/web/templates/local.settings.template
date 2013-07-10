@@ -1,0 +1,8 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+from {{ settings_file }} import *
+
+{% for key, value in settings.iteritems() %}
+{{ key }} = {% if value is string %}"{{ value }}"{% else %}{{ value }}{% endif %}
+{% endfor %}
